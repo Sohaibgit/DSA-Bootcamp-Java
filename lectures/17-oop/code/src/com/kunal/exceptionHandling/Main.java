@@ -8,7 +8,7 @@ public class Main {
 //            divide(a, b);
             // mimicing
             String name = "Kunal";
-            if (name.equals("Kunal")) {
+            if ("Kunal".equals(name)) {
                 throw new MyException("name is kunal");
             }
         } catch (MyException e) {
