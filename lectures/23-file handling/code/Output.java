@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.file.Files;
 
 class Output {
     static void output() {
@@ -25,7 +26,7 @@ class Output {
       System.out.println(e.getMessage());
     }
 
-    try (BufferedWriter bw = new BufferedWriter(new FileWriter("note.txt"))) {
+    try (BufferedWriter bw = Files.newBufferedWriter("note.txt".toPath())) {
       bw.write("Hare Krishna");
     } catch (IOException e) {
       System.out.println(e.getMessage());
