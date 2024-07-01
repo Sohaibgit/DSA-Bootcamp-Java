@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 import java.io.IOException;
 import java.util.Scanner;
@@ -25,7 +26,7 @@ class Main {
     // reading from a file
     try (BufferedReader br = new BufferedReader(new FileReader("new-file.txt"))) {
       while (br.ready()) {
-        System.out.println(br.readLine());
+        System.out.println(BoundedLineReader.readLine(br, 5_000_000));
       }
     } catch (IOException e) {
         System.out.println(e.getMessage());      
