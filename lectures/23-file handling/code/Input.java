@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.*;
 
 class Input {
@@ -29,14 +30,14 @@ class Input {
 
     // byte to char stream and then reading char stream
     try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-      System.out.println("You typed: " + br.readLine());
+      System.out.println("You typed: " + BoundedLineReader.readLine(br, 5_000_000));
     } catch (IOException e) {
         System.out.println(e.getMessage());      
     }
 
     try (BufferedReader br = new BufferedReader(new FileReader("note.txt"))) {
       while (br.ready()) {
-        System.out.println(br.readLine());
+        System.out.println(BoundedLineReader.readLine(br, 5_000_000));
       }
     } catch (IOException e) {
         System.out.println(e.getMessage());      
