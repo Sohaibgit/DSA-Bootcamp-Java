@@ -1,10 +1,11 @@
+import java.security.SecureRandom;
 import java.util.Random;
 
 class RandomString {
   static String generate(int size) {
     StringBuffer sb = new StringBuffer(size);
 
-    Random random = new Random();
+    Random random = new SecureRandom();
 
     for (int i=0; i < size; i++) {
       int randomChar = 97 + (int)(random.nextFloat() * 26);
